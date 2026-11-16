@@ -55,6 +55,18 @@
 <h2>🌳 Especies Monitoreadas en el Corredor</h2>
 <p>Selecciona un árbol o filtra por sector hídrico para consultar su ficha técnica.</p>
 </div>
+<div style="margin-bottom: 2rem;">
+    <h3 style="color: #114B2F; margin-bottom: 10px;">🗺️ Ubicación del Corredor Ecológico</h3>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15915.228515792903!2d-73.64161832049103!3d4.122119934338902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e5c83d6aefd%3A0x46ef32bbff4ff44a!2sCa%C3%B1o%20Buque%2C%20Villavicencio%2C%20Meta!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" 
+        width="100%" 
+        height="300" 
+        style="border:0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
 <div class="filter-buttons">
 <button class="btn-filter active" onclick="filtrarSector('todos', this)">Todos (4)</button>
 <button class="btn-filter" onclick="filtrarSector('buque', this)">Caño Buque</button>
@@ -170,6 +182,9 @@
 </div>
 <aside class="log-container">
 <h3>📋 Bitácora Comunitaria Reciente</h3>
+<button type="button" class="btn btn-outline" onclick="window.print()" style="width: 100%; margin-bottom: 15px; border-color: #16A34A; color: #16A34A;">
+    📥 Generar Reporte PDF
+</button>
 <p>Registros procesados dinámicamente mediante manipulación del DOM:</p>
 <ul id="lista-bitacora" class="log-list">
 <li class="log-item">

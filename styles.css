@@ -429,3 +429,39 @@ html {
         text-align: center;
     }
 }
+
+/* ================= 7. ESTILOS PARA EXPORTACIÓN A PDF (@media print) ================= */
+@media print {
+    /* Ocultar elementos innecesarios en el PDF */
+    .main-header, 
+    .hero-section, 
+    .filter-buttons, 
+    .btn-card, 
+    .form-container,
+    .main-footer,
+    button {
+        display: none !important;
+    }
+
+    /* Ajustar el diseño de la página impresa */
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    .report-layout {
+        display: block; /* Quitar la cuadrícula (grid) para el PDF */
+    }
+
+    .log-container {
+        box-shadow: none;
+        border: 1px solid #CBD5E1;
+        margin-top: 20px;
+    }
+
+    .tree-card {
+        page-break-inside: avoid; /* Evitar que una tarjeta se corte a la mitad de la hoja */
+        box-shadow: none;
+        border: 1px solid black;
+    }
+}
