@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoWeb Villavicencio | Corredor Ecológico Inteligente UNIMINUTO</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="main-header">
+<div class="container navbar">
+<div class="logo">
+<span class="logo-icon">🌱</span>
+<div>
+<h1>EcoWeb <span>Villavicencio</span></h1>
+<small>Proyecto Integrador UNIMINUTO</small>
+</div>
+</div>
+<nav class="nav-links">
+<a href="#inicio">Inicio</a>
+<a href="#corredor">Árboles QR</a>
+<a href="#reportar">Reportar Estado</a>
+</nav>
+</div>
+</header>
+<main>
+<section id="inicio" class="hero-section">
+<div class="container hero-content">
+<span class="badge-institucional">📍 Caño Buque & Caño Parrado — Villavicencio, Meta</span>
+<h2>Monitoreo Ciudadano del Corredor Ecológico Urbano</h2>
+<p>Plataforma web interactiva para garantizar la supervivencia y trazabilidad de especies nativas sembradas por estudiantes y la comunidad mediante placas con <strong>Códigos QR</strong>.</p>
+<div class="hero-buttons">
+<a href="#reportar" class="btn btn-primary">📲 Simular Escaneo / Reportar</a>
+<a href="#corredor" class="btn btn-outline">🌳 Ver Inventario Forestal</a>
+</div>
+<div class="stats-bar">
+<div class="stat-item">
+<strong id="contador-arboles">4</strong>
+<span>Árboles Piloto con QR</span>
+</div>
+<div class="stat-item">
+<strong id="contador-sanos">2</strong>
+<span>Árboles en Estado Sano</span>
+</div>
+<div class="stat-item">
+<strong id="contador-reportes">3</strong>
+<span>Reportes Ciudadanos Hoy</span>
+</div>
+</div>
+</div>
+</section>
+<section id="corredor" class="corredor-section container">
+<div class="section-header">
+<div>
+<h2>🌳 Especies Monitoreadas en el Corredor</h2>
+<p>Selecciona un árbol o filtra por sector hídrico para consultar su ficha técnica.</p>
+</div>
+<div class="filter-buttons">
+<button class="btn-filter active" onclick="filtrarSector('todos', this)">Todos (4)</button>
+<button class="btn-filter" onclick="filtrarSector('buque', this)">Caño Buque</button>
+<button class="btn-filter" onclick="filtrarSector('parrado', this)">Caño Parrado</button>
+</div>
+</div>
+<div class="trees-grid" id="galeria-arboles">
+<article class="tree-card" data-codigo="QR-VVC-001" data-sector="buque">
+<div class="card-header">
+<span class="qr-badge">🏁 QR-VVC-001</span>
+<span class="status-pill status-sano" id="status-QR-VVC-001">Sano</span>
+</div>
+<h3 class="tree-name">Yopo Llanero <small>(Anadenanthera peregrina)</small></h3>
+<ul class="tree-meta">
+<li><strong>📍 Sector:</strong> Caño Buque (Tramo UNIMINUTO)</li>
+<li><strong>📏 Altura actual:</strong> 1.85 metros</li>
+<li><strong>🗓️ Fecha siembra:</strong> 12 de Septiembre, 2026</li>
+<li><strong>📝 Último reporte:</strong> <span id="nota-QR-VVC-001">Hojas verdes y suelo húmedo.</span></li>
+</ul>
+<button class="btn-card" onclick="cargarArbolEnFormulario('QR-VVC-001')">Actualizar Estado de este Árbol</button>
+</article>
+<article class="tree-card" data-codigo="QR-VVC-002" data-sector="buque">
+<div class="card-header">
+<span class="qr-badge">🏁 QR-VVC-002</span>
+<span class="status-pill status-riego" id="status-QR-VVC-002">Requiere Riego</span>
+</div>
+<h3 class="tree-name">Cañaguate <small>(Handroanthus chrysanthus)</small></h3>
+<ul class="tree-meta">
+<li><strong>📍 Sector:</strong> Caño Buque (Puente Primavera)</li>
+<li><strong>📏 Altura actual:</strong> 1.40 metros</li>
+<li><strong>🗓️ Fecha siembra:</strong> 12 de Septiembre, 2026</li>
+<li><strong>📝 Último reporte:</strong> <span id="nota-QR-VVC-002">Suelo seco por alta temperatura.</span></li>
+</ul>
+<button class="btn-card" onclick="cargarArbolEnFormulario('QR-VVC-002')">Actualizar Estado de este Árbol</button>
+</article>
+<article class="tree-card" data-codigo="QR-VVC-003" data-sector="parrado">
+<div class="card-header">
+<span class="qr-badge">🏁 QR-VVC-003</span>
+<span class="status-pill status-sano" id="status-QR-VVC-003">Sano</span>
+</div>
+<h3 class="tree-name">Palma Moriche <small>(Mauritia flexuosa)</small></h3>
+<ul class="tree-meta">
+<li><strong>📍 Sector:</strong> Ronda Caño Parrado (Zona Centro)</li>
+<li><strong>📏 Altura actual:</strong> 2.10 metros</li>
+<li><strong>🗓️ Fecha siembra:</strong> 20 de Septiembre, 2026</li>
+<li><strong>📝 Último reporte:</strong> <span id="nota-QR-VVC-003">Crecimiento óptimo sin plagas.</span></li>
+</ul>
+<button class="btn-card" onclick="cargarArbolEnFormulario('QR-VVC-003')">Actualizar Estado de este Árbol</button>
+</article>
+<article class="tree-card" data-codigo="QR-VVC-004" data-sector="parrado">
+<div class="card-header">
+<span class="qr-badge">🏁 QR-VVC-004</span>
+<span class="status-pill status-alerta" id="status-QR-VVC-004">Alerta Plaga</span>
+</div>
+<h3 class="tree-name">Gualanday <small>(Jacaranda mimosifolia)</small></h3>
+<ul class="tree-meta">
+<li><strong>📍 Sector:</strong> Ronda Caño Parrado (Sector Grama)</li>
+<li><strong>📏 Altura actual:</strong> 1.25 metros</li>
+<li><strong>🗓️ Fecha siembra:</strong> 28 de Septiembre, 2026</li>
+<li><strong>📝 Último reporte:</strong> <span id="nota-QR-VVC-004">Presencia de hormiga arriera en hojas.</span></li>
+</ul>
+<button class="btn-card" onclick="cargarArbolEnFormulario('QR-VVC-004')">Actualizar Estado de este Árbol</button>
+</article>
+</div>
+</section>
+<section id="reportar" class="report-section">
+<div class="container report-layout">
+<div class="form-container">
+<h2>📲 Registrar Reporte de Monitoreo QR</h2>
+<p>Al escanear la placa física en el árbol, el ciudadano reporta su estado actual:</p>
+<div id="mensaje-validacion" class="alert-box oculto"></div>
+<form id="form-reporte-arbol" novalidate>
+<div class="form-group">
+<label for="select-qr">1. Código QR del Árbol (*)</label>
+<select id="select-qr" required>
+<option value="">-- Selecciona el código escaneado --</option>
+<option value="QR-VVC-001">QR-VVC-001 | Yopo Llanero (Caño Buque)</option>
+<option value="QR-VVC-002">QR-VVC-002 | Cañaguate (Caño Buque)</option>
+<option value="QR-VVC-003">QR-VVC-003 | Palma Moriche (Caño Parrado)</option>
+<option value="QR-VVC-004">QR-VVC-004 | Gualanday (Caño Parrado)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="select-estado">2. Estado Fitosanitario Observado (*)</label>
+<select id="select-estado" required>
+<option value="">-- Selecciona el estado actual --</option>
+<option value="Sano">🟢 Sano (Hojas verdes y buen vigor)</option>
+<option value="Requiere Riego">🟡 Requiere Riego (Tierra seca / marchitez)</option>
+<option value="Alerta Plaga">🔴 Alerta Plaga o Daño Físico</option>
+</select>
+</div>
+<div class="form-group">
+<label for="input-voluntario">3. Nombre del Estudiante / Ciudadano (*)</label>
+<input type="text" id="input-voluntario" placeholder="Ej. Camila Gómez - Ing. de Sistemas">
+</div>
+<div class="form-group">
+<label for="input-observacion">4. Observaciones de Campo (*)</label>
+<textarea id="input-observacion" rows="3" placeholder="Describe si realizaste riego, limpieza de maleza o el estado del árbol..."></textarea>
+</div>
+<div class="form-group" style="background-color: #F8FAFC; padding: 15px; border-radius: 8px; margin-top: 15px; border: 1px solid #CBD5E1;">
+<label>5. Ubicación GPS en el Corredor (*)</label>
+<p style="font-size: 0.85rem; color: #64748B; margin-bottom: 10px;">Presiona el botón para capturar tus coordenadas exactas.</p>
+<button type="button" id="btn-obtener-gps" class="btn btn-outline" style="width: 100%; border-color: #114B2F; color: #114B2F; margin-bottom: 10px;">
+📍 Obtener mi ubicación actual
+</button>
+<div style="display: flex; gap: 10px;">
+<input type="text" id="input-latitud" placeholder="Latitud" readonly style="background-color: #e2e8f0; font-size: 0.85rem;">
+<input type="text" id="input-longitud" placeholder="Longitud" readonly style="background-color: #e2e8f0; font-size: 0.85rem;">
+</div>
+</div>
+<button type="submit" class="btn btn-primary btn-full">✅ Guardar Reporte y Actualizar Árbol</button>
+</form>
+</div>
+<aside class="log-container">
+<h3>📋 Bitácora Comunitaria Reciente</h3>
+<p>Registros procesados dinámicamente mediante manipulación del DOM:</p>
+<ul id="lista-bitacora" class="log-list">
+<li class="log-item">
+<span class="log-tag">QR-VVC-001</span>
+<strong>Andrés Pérez (UNIMINUTO):</strong> Realizó riego preventivo y revisión de tutor de madera.
+</li>
+<li class="log-item">
+<span class="log-tag">QR-VVC-004</span>
+<strong>Junta Acción Comunal:</strong> Reporta presencia de hormigas en el tramo Grama.
+</li>
+<li class="log-item">
+<span class="log-tag">QR-VVC-003</span>
+<strong>Laura Méndez (Semillero):</strong> Medición mensual completada (2.10m).
+</li>
+</ul>
+</aside>
+</div>
+</section>
+</main>
+<footer class="main-footer">
+<div class="container footer-content">
+<p><strong>EcoWeb Villavicencio</strong> — Primer Avance de Proyecto (HTML5, CSS3 y JavaScript Básico)</p>
+<p>Corporación Universitaria Minuto de Dios (UNIMINUTO) | Sede Villavicencio - 2026</p>
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

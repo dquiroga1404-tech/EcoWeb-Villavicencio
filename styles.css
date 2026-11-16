@@ -1,0 +1,431 @@
+
+:root {
+    --verde-oscuro: #114B2F;
+    --verde-primario: #16A34A;
+    --verde-claro: #DCFCE7;
+    --fondo-pagina: #F8FAFC;
+    --blanco: #FFFFFF;
+    --texto-principal: #1E293B;
+    --texto-secundario: #64748B;
+    --color-sano: #15803D;
+    --fondo-sano: #DCFCE7;
+    --color-riego: #B45309;
+    --fondo-riego: #FEF3C7;
+    --color-alerta: #B91C1C;
+    --fondo-alerta: #FEE2E2;
+    --borde-suave: #E2E8F0;
+    --sombra-card: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Aplicación del Modelo de Caja visto en clase */
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--texto-principal);
+    background-color: var(--fondo-pagina);
+    line-height: 1.6;
+}
+
+.container {
+    width: 92%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+.main-header {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    padding: 0.9rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.logo h1 {
+    font-size: 1.35rem;
+    line-height: 1.1;
+}
+
+.logo h1 span {
+    color: #86EFAC;
+    font-weight: 400;
+}
+
+.logo small {
+    font-size: 0.75rem;
+    color: #CBD5E1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #86EFAC;
+}
+
+
+.hero-section {
+    background: linear-gradient(135deg, #114B2F 0%, #15803D 100%);
+    color: var(--blanco);
+    padding: 3.5rem 0 3rem;
+    text-align: center;
+}
+
+.badge-institucional {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+    font-size: 2.2rem;
+    max-width: 780px;
+    margin: 0 auto 1rem;
+    line-height: 1.25;
+}
+
+.hero-content p {
+    max-width: 680px;
+    margin: 0 auto 1.8rem;
+    color: #E2E8F0;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: #22C55E;
+    color: #052E16;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--blanco);
+    color: var(--blanco);
+}
+
+.stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    border-radius: 12px;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.9rem;
+    color: #86EFAC;
+}
+
+
+.corredor-section {
+    padding: 3.5rem 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-filter {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--borde-suave);
+    background-color: var(--blanco);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--texto-secundario);
+}
+
+.btn-filter.active {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    border-color: var(--verde-oscuro);
+}
+
+.trees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.tree-card {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
+    padding: 1.4rem;
+    box-shadow: var(--sombra-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.qr-badge {
+    background-color: #F1F5F9;
+    font-family: monospace;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.status-pill {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.status-sano {
+    background-color: var(--fondo-sano);
+    color: var(--color-sano);
+}
+
+.status-riego {
+    background-color: var(--fondo-riego);
+    color: var(--color-riego);
+}
+
+.status-alerta {
+    background-color: var(--fondo-alerta);
+    color: var(--color-alerta);
+}
+
+.tree-name {
+    font-size: 1.15rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 0.75rem;
+}
+
+.tree-name small {
+    display: block;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+.tree-meta {
+    list-style: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+}
+
+.tree-meta li {
+    margin-bottom: 0.4rem;
+}
+
+.btn-card {
+    width: 100%;
+    padding: 0.65rem;
+    background-color: var(--verde-claro);
+    color: var(--verde-oscuro);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-card:hover {
+    background-color: #BBF7D0;
+}
+
+
+.report-section {
+    background-color: #ECFDF5;
+    padding: 3.5rem 0;
+    border-top: 1px solid #D1FAE5;
+}
+
+.report-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+}
+
+.form-container, .log-container {
+    background-color: var(--blanco);
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+}
+
+.form-group {
+    margin-top: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 1.25rem;
+    color: var(--blanco);
+    background-color: var(--verde-oscuro);
+}
+
+.alert-box {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.oculto {
+    display: none;
+}
+
+.alert-error {
+    display: block;
+    background-color: var(--fondo-alerta);
+    color: var(--color-alerta);
+}
+
+.alert-success {
+    display: block;
+    background-color: var(--fondo-sano);
+    color: var(--color-sano);
+}
+
+.log-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.log-item {
+    padding: 0.85rem;
+    border-left: 4px solid var(--verde-primario);
+    background-color: var(--fondo-pagina);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.log-tag {
+    display: inline-block;
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    font-size: 0.75rem;
+    font-family: monospace;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    margin-right: 0.4rem;
+}
+
+
+.main-footer {
+    background-color: #0F172A;
+    color: #94A3B8;
+    text-align: center;
+    padding: 1.8rem 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .report-layout {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h2 {
+        font-size: 1.65rem;
+    }
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+}
